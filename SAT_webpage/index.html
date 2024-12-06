@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SAT">
+  <meta name="keywords" content="SAT, spatial aptitude training, spatial intelligence, LLM, MLM, langauge models, multimodal, multimodal language models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAT: Spatial Aptitude Training for Multimodal Language Models </title>
+
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SAT: Spatial Aptitude Training for Multimodal Language Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+                <a href="">Arijit Ray</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://duanjiafei.com/">Jiafei Duan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://cs-people.bu.edu/rxtan/">Reuben Tan</a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=qvUTYsUAAAAJ&hl=en">Dina Bashkirova</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://rosehendrix.com/">Rose Hendrix</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://ehsanik.github.io/">Kiana Ehsani</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://anikem.github.io/">Aniruddha Kembhavi</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://bryanplummer.com/">Bryan A. Plummer</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://ranjaykrishna.com/index.html">Ranjay Krishna</a><sup>2,3</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://kuohaozeng.github.io/">Kuo-Hao Zeng</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+                <a href="http://ai.bu.edu/ksaenko.html">Kate Saenko</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Boston University,</span>
+            <span class="author-block"><sup>2</sup>University of Washnigton,</span>
+            <span class="author-block"><sup>3</sup>Allen AI,</span>
+            <span class="author-block"><sup>4</sup>Microsoft Research (MSR)</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="SAT_arxiv.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv coming soon!</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code coming soon!</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data coming soon!</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">SAT</span> is a spatial aptitude training dataset with complex dynamic tasks for multimodal language models.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Spatial perception is a fundamental component of intelligence. 
+          While many studies highlight that large multimodal language models (MLMs) struggle to reason about space, 
+          they only test for static spatial reasoning, such as categorizing the relative positions of objects. 
+          Meanwhile, real-world deployment requires dynamic capabilities like perspective-taking and egocentric action recognition. 
+          As a roadmap to improving spatial intelligence, we introduce SAT, Spatial Aptitude Training, 
+          which goes beyond static relative object position questions to more dynamic tasks. 
+          SAT contains 218K question-answer pairs for 22K synthetic scenes across a training and testing set.
+           Generated using a photo-realistic physics engine, our dataset can be arbitrarily scaled and easily extended 
+           to new actions, scenes, and 3D assets. We find that even MLMs that perform relatively well on static questions struggle 
+           to accurately answer dynamic spatial questions. Further, we show that SAT instruction-tuning data 
+           improves not only dynamic spatial reasoning on SAT, but also zero-shot performance on existing real-image
+            spatial benchmarks: 23% on CVBench, 9% on the harder BLINK benchmark, and 18% on VSR. When 
+            instruction-tuned on SAT, LLaVA-13B matches larger proprietary MLMs 
+            like GPT4-V and Gemini-3-1.0 in spatial reasoning.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{ray2024sat,
+  author    = {Ray, Arijit and Duan, Jiafei and Tan, Reuben and Bashkirova, Dina and Hendrix, Rose and Ehsani, Kiana and Kembhavi, Aniruddha and Plummer, Bryan A. and Krishna, Ranjay and Zeng, Kuo-Hao and Saenko, Kate},
+  title     = {SAT: Spatial Aptitude Training for Multimodal Language Models},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
