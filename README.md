@@ -19,6 +19,12 @@ conda activate sat_conda
 ## Run Inference with our best SAT model
 
 ```python
+
+# choose the one you want
+CHECKPOINT_NAME = "array/sat-dynamic-13b" # trained on SAT dynnamic data (numbers used in ArXiV paper)
+CHECKPOINT_NAME = "array/sat-robopoint-13b" # trained on SAT dynamic + robopoint data (stronger and can also point in 2D)
+
+
 import models.model_interface as models
 from peft import LoraConfig, get_peft_model
 from peft import PeftConfig, PeftModel
@@ -49,7 +55,7 @@ config = {
     },
 }
 load_model = models.LlavaModel_13B_Interface(**config)
-lora_model = PeftModel.from_pretrained(load_model, "array/sat-dynamic-13b")
+lora_model = PeftModel.from_pretrained(load_model, CHECKPOINT_NAME)
 lora_model = lora_model.half()
 model = lora_model.merge_and_unload()
 
