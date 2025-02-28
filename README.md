@@ -9,9 +9,10 @@ Arijit Ray, Jiafei Duan, Reuben Tan, Dina Bashkirova, Rose Hendrix, Kiana Ehsani
 
 ## Pre-requisities
 
-Create a conda environment:
+Clone this repo and create a conda environment:
 
 ```
+git clone https://github.com/arijitray1993/SAT.git
 conda env create -f sat_conda.yml
 conda activate sat_conda
 ```
