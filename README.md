@@ -1,6 +1,9 @@
 # SAT: Spatial Aptitude Training for Multimodal Language Models
 Arijit Ray, Jiafei Duan, Reuben Tan, Dina Bashkirova, Rose Hendrix, Kiana Ehsani, Aniruddha Kembhavi, Bryan A. Plummer, Ranjay Krishna, Kuo-Hao Zeng, Kate Saenko
 
+**Note: This code release is a work in progress - we will update it with full instructions soon.**
+
+
 [Project Page](https://arijitray1993.github.io/SAT/)
 [Paper](https://arxiv.org/abs/2412.07755)
 
@@ -23,8 +26,6 @@ conda activate sat_conda
 
 # choose the one you want
 CHECKPOINT_NAME = "array/sat-dynamic-13b" # trained on SAT dynnamic data (numbers used in ArXiV paper)
-CHECKPOINT_NAME = "array/sat-robopoint-13b" # trained on SAT dynamic + robopoint data (stronger and can also point in 2D)
-
 
 import models.model_interface as models
 from peft import LoraConfig, get_peft_model
@@ -61,7 +62,7 @@ lora_model = lora_model.half()
 model = lora_model.merge_and_unload()
 
 
-## Process the data
+## Process the data, assumes you have images_batch of PIL images and prompt which is a text string query like "Is the car to the left or right of pedestrian?"
 images = []
 for image in images_batch: 
     # list of images for a prompt or prompt batch. Even if one prompt in a batch requires 2 images, this list should be flattened.
