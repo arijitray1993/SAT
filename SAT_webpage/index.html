@@ -6,7 +6,7 @@
         content="SAT">
   <meta name="keywords" content="SAT, spatial aptitude training, spatial intelligence, LLM, MLM, langauge models, multimodal, multimodal language models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SAT: Spatial Aptitude Training for Multimodal Language Models </title>
+  <title>SAT: Dynamic Spatial Aptitude Training for Multimodal Language Models </title>
 
 
   <script>
@@ -75,8 +75,11 @@
                 <a href="https://arijitray1993.github.io/">Arijit Ray</a><sup>1</sup>,
             </span>
             <span class="author-block">
-                <a href="https://duanjiafei.com/">Jiafei Duan</a><sup>2</sup>,
+                <a href="https://duanjiafei.com/">Jiafei Duan</a><sup>2 &dagger;</sup>,
             </span>
+            <span class="author-block">
+              <a href="https://duanjiafei.com/">Ellis Brown</a><sup>2 &dagger;</sup>,
+          </span>
             <span class="author-block">
                 <a href="https://cs-people.bu.edu/rxtan/">Reuben Tan</a><sup>1,4</sup>,
             </span>
@@ -111,9 +114,10 @@
             <span class="author-block"><sup>2</sup>University of Washnigton,</span>
             <span class="author-block"><sup>3</sup>Allen AI,</span>
             <span class="author-block"><sup>4</sup>Microsoft Research (MSR)</span>
+            <span class="author-block"><sup>5</sup>New York University</span>
           </div>
           <div class="is-size-6 publication-authors">
-            *equal advising
+            *equal advising, &dagger; joint second author
           </div>
 
           <div class="column has-text-centered">
@@ -169,7 +173,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">SAT</span> is a spatial aptitude training dataset with complex dynamic spatial tasks that go beyond simple static relationships in existing datasets.
+        <span class="dnerf">SAT</span> is a dynamic spatial aptitude training dataset requiring reasoning about ego and object motions that go beyond simple static relationships in existing datasets.
       </h2>
     </div>
   </div>
@@ -177,7 +181,7 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-          <img src="./SAT_webpage/static/images/sat_teaser.png" alt="SAT Teaser" width="130%"> 
+          <img src="./SAT_webpage/static/images/SAT_COLM_teaser_2.png" alt="SAT Teaser" width="130%"> 
   </div>
 </section>
 
@@ -244,8 +248,8 @@ natural language descriptions of the assets and make QA pairs based on how the 3
         <h2 class="title is-3">Results</h2>
         <hr>
         <div class="content has-text-centered">
-          <h4 class="title is-5">Existing MLMs underperform on SAT Dynamic Tasks</h4>
-          <img src="./SAT_webpage/static/images/SATBenchTest.png" alt="SAT Tasks" class="interpolation-image" width="75%">
+          <h4 class="title is-5">Open-source MLMs struggle on our dynamic spatial reasoning as well as large proprietary models despite stronger static spatial performance</h4>
+          <img src="./SAT_webpage/static/images/sat_eval.png" alt="SAT Tasks" class="interpolation-image" width="75%">
         </div>
       </div>
     </div>
@@ -254,82 +258,40 @@ natural language descriptions of the assets and make QA pairs based on how the 3
     
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h5 class="title is-5">Fine-tuning on SAT matches a 13B MLM with larger models</h5>
+        <h5 class="title is-5">Fine-tuning on SAT improves spatial performance on existing benchmarks</h5>
       </div>
     </div>
     
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <div class="column content">
-          <h5 class="title is-5">CV-Bench</h5>
-            <img src="./SAT_webpage/static/images/SAT_closedmodels.png" alt="SAT Tasks" class="interpolation-image" width="90%">
-        </div>
-      </div>
-      <div class="column">
         <div class="column content"> 
-          <h5 class="title is-5">BLINK</h5> 
-            <img src="./SAT_webpage/static/images/SAT_closed_BLINK.png" alt="SAT Tasks" class="interpolation-image" width="80%">
+          <img src="./SAT_webpage/static/images/staticeval.png" alt="SAT Tasks" class="interpolation-image" width="80%">
         </div>
       </div>
           
     </div>
   
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h5 class="title is-5">Our SAT-tuned model remembers pre-training commonsense</h5>
-        <img src="./SAT_webpage/static/images/SAT_VQABench.png" alt="SAT Tasks" class="interpolation-image" width="70%">
-      </div>
-    </div>
-    
     <hr>
     
-    <div class="columns is-centered has-text-centered">
-      <div class="content">
-        <h5 class="title is-5">Tuning with SAT Dynamic data outperforms other types of spatial tuning</h5>
-        <img src="./SAT_webpage/static/images/SAT_compare.png" alt="SAT Tasks" class="interpolation-image" width="105%">
-      </div>
-    </div>
-
   </div>
   
 </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- examples. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Some examples</h2>
-        <div class="content has-text-centered">
-          <img src="./SAT_webpage/static/images/qualResultQA.png" alt="Results" class="interpolation-image" width="100%">
-          Some qualitative results of spatial question answering. We improve from LLaVA baseline on spatial reasoning on real images. We also improve on dynamic capabilities on our test set. 
-          Multiview reasoning and egocentric movement remain challenging on real images.
-          While our evaluation is with multiple choices, we show some longer conversational example responses as well.
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    
-    <!--/ Paper video. -->
-  </div>
-</section>
 
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{ray2024satspatialaptitudetraining,
-title={SAT: Spatial Aptitude Training for Multimodal Language Models}, 
-author={Arijit Ray and Jiafei Duan and Reuben Tan and Dina Bashkirova and Rose Hendrix and Kiana Ehsani and Aniruddha Kembhavi and Bryan A. Plummer and Ranjay Krishna and Kuo-Hao Zeng and Kate Saenko},
-year={2024},
-eprint={2412.07755},
-archivePrefix={arXiv},
-primaryClass={cs.CV},
-url={https://arxiv.org/abs/2412.07755}, 
-}</code></pre>
+    <pre><code>@misc{ray2025satdynamicspatialaptitude,
+      title={SAT: Dynamic Spatial Aptitude Training for Multimodal Language Models}, 
+      author={Arijit Ray and Jiafei Duan and Ellis Brown and Reuben Tan and Dina Bashkirova and Rose Hendrix and Kiana Ehsani and Aniruddha Kembhavi and Bryan A. Plummer and Ranjay Krishna and Kuo-Hao Zeng and Kate Saenko},
+      year={2025},
+      eprint={2412.07755},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.07755}, 
+    }</code></pre>
   </div>
 </section>
 
