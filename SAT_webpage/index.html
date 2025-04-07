@@ -69,7 +69,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SAT: Spatial Aptitude Training for Multimodal Language Models</h1>
+          <h1 class="title is-1 publication-title">SAT: Dynamic Spatial Aptitude Training for Multimodal Language Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
                 <a href="https://arijitray1993.github.io/">Arijit Ray</a><sup>1</sup>,
@@ -193,20 +193,21 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          Spatial perception is a fundamental component of intelligence. 
+          Reasoning about motion and space is a fundamental cognitive capability that is required by multiple real-world applications. 
           While many studies highlight that large multimodal language models (MLMs) struggle to reason about space, 
-          they only test for static spatial reasoning, such as categorizing the relative positions of objects. 
-          Meanwhile, real-world deployment requires dynamic capabilities like perspective-taking and egocentric action recognition. 
-          As a roadmap to improving spatial intelligence, we introduce SAT, Spatial Aptitude Training, 
-          which goes beyond static relative object position questions to more dynamic tasks. 
-          SAT contains 218K question-answer pairs for 22K synthetic scenes across a training and testing set.
-           Generated using a photo-realistic physics engine, our dataset can be arbitrarily scaled and easily extended 
-           to new actions, scenes, and 3D assets. We find that even MLMs that perform relatively well on static questions struggle 
-           to accurately answer dynamic spatial questions. Further, we show that SAT instruction-tuning data 
-           improves not only dynamic spatial reasoning on SAT, but also zero-shot performance on existing real-image
-            spatial benchmarks: 23% on CVBench, 9% on the harder BLINK benchmark, and 18% on VSR. When 
-            instruction-tuned on SAT, LLaVA-13B matches larger proprietary MLMs 
-            like GPT4-V and Gemini-3-1.0 in spatial reasoning.
+          they only focus on static spatial relationships, and not dynamic awareness of motion and space, i.e.,
+           reasoning about the effect of egocentric and object motions on spatial relationships. Manually annotating such 
+           object and camera movements is expensive. Hence, we introduce SAT, a simulated spatial aptitude training dataset 
+           comprising both static and dynamic spatial reasoning across 175K question-answer (QA) pairs and 20K scenes. 
+           Complementing this, we also construct a small (150 image-QAs) yet challenging dynamic spatial test set using real-world images.
+            Leveraging our SAT datasets and 6 existing static spatial benchmarks, we systematically investigate what improves both
+             static and dynamic spatial awareness. Our results reveal that simulations are surprisingly effective at imparting
+              spatial aptitude to MLMs that translate to real images. We show that perfect annotations in simulation are more
+               effective than existing approaches of pseudo-annotating real images. For instance, SAT training improves a 
+               LLaVA-13B model by an average 11% and a LLaVA-Video-7B model by an average 8% on multiple spatial benchmarks, 
+               including our real-image dynamic test set and spatial reasoning on long videos -- even outperforming some 
+               large proprietary models. While reasoning over static relationships improves with synthetic training data, 
+               there is still considerable room for improvement for dynamic reasoning questions.
         </div>
       </div>
     </div>
