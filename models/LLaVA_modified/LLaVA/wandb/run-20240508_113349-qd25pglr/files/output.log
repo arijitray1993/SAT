@@ -1,0 +1,83 @@
+
+  0%|                                                                                                                                                                                                                                                                                                                                               | 0/329 [00:00<?, ?it/s]/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/checkpoint.py:429: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/checkpoint.py:61: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+Traceback (most recent call last):
+  File "/projectnb/ivc-ml/array/research/robotics/LLaVA/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/projectnb/ivc-ml/array/research/robotics/LLaVA/llava/train/train.py", line 969, in train
+    trainer.train()
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/trainer.py", line 1869, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/trainer.py", line 2772, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/trainer.py", line 2795, in compute_loss
+    outputs = model(**inputs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 15, in wrapped_fn
+    ret_val = func(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1833, in forward
+    loss = self.module(*inputs, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/peft/peft_model.py", line 1129, in forward
+    return self.base_model(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/peft/tuners/tuners_utils.py", line 161, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/research/robotics/LLaVA/llava/model/language_model/llava_llama.py", line 117, in forward
+    output = super().forward(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1183, in forward
+    outputs = self.model(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1060, in forward
+    layer_outputs = self._gradient_checkpointing_func(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 328, in _fn
+    return fn(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 451, in checkpoint
+    return CheckpointFunction.apply(function, preserve, *args)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/autograd/function.py", line 539, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 230, in forward
+    outputs = run_function(*args)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 798, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1568, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 549, in forward
+    attn_output = self._flash_attention_forward(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 599, in _flash_attention_forward
+    attn_output_unpad = flash_attn_varlen_func(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 1066, in flash_attn_varlen_func
+    return FlashAttnVarlenFunc.apply(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/autograd/function.py", line 539, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 581, in forward
+    out, q, k, v, out_padded, softmax_lse, S_dmask, rng_state = _flash_attn_varlen_forward(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/flash_attn/flash_attn_interface.py", line 86, in _flash_attn_varlen_forward
+    out, q, k, v, out_padded, softmax_lse, S_dmask, rng_state = flash_attn_cuda.varlen_fwd(
+RuntimeError: FlashAttention only supports Ampere GPUs or newer.

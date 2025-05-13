@@ -1,0 +1,32 @@
+  0%|                                                                                                                                                                                                                                                                                                                                               | 0/329 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/projectnb/ivc-ml/array/research/robotics/LLaVA/llava/train/train_mem.py", line 4, in <module>
+    train(attn_implementation="flash_attention_2")
+  File "/projectnb/ivc-ml/array/research/robotics/LLaVA/llava/train/train.py", line 969, in train
+    trainer.train()
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/transformers/trainer.py", line 1836, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+FileNotFoundError: Caught FileNotFoundError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/projectnb/ivc-ml/array/research/robotics/LLaVA/llava/train/train.py", line 701, in __getitem__
+    image = Image.open(os.path.join(image_folder, image_file)).convert('RGB')
+  File "/projectnb/ivc-ml/array/miniconda3/envs/llava_new/lib/python3.10/site-packages/PIL/Image.py", line 3277, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: '/projectnb/ivc-ml/array/research/robotics/vqasynth_warehouse_spaces/images/images/a91de31e-b0c8-44d8-bdb6-401969ffc228.jpg'

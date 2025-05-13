@@ -1,0 +1,52 @@
+exp_name: zeroshot_llava_MLMBench
+device: 'gpu'
+num_workers: 4
+
+### loading checkpoints, eval, train options
+num_epochs: 50
+batch_size: 1
+lr: 0.000005
+weight_decay: 0.000001
+lr_scheduler: "cosine"
+eval_only: True # if this is set to True, only the val dataset will be run.
+tune_lora: False
+load_checkpoint: False
+
+lora_model_path: False #/projectnb/ivc-ml/array/research/robotics/dreamworlds/checkpoints/llava_mixdata_randompoint/peach-violet-11_115000
+
+eval_every: 5000
+num_eval_steps: 10000
+no_shuffle: False
+
+freeze_vision: False
+
+## define your val dataset, the name must match the class name in datasets/dataloaders.py. This is run only when eval_only is set to True
+
+val_dataset_choice: "AllMLMBench"
+val_dataset_args: {
+  split: "val",
+  mode: "val",
+  num_data_points: 5000,
+  zero_shot_mode: True,
+}
+val_collate_fn: "collate_fn" 
+
+## define model. The name must match the class name in models/model_interface.py
+model_choice: "LlavaModel_13B_Interface"
+model_init_args: {
+  temperature: 0,
+  top_p: None,
+  num_beams: 1,
+  max_new_tokens: 768,
+}
+# the model must output a huggingface output in its forward function.
+ 
+# These are the inputs to the model. These variables must be present in the dictionary output from your dataloader in datasets/dataloaders.py.
+model_input_choice: ['input_ids', 'attention_mask', 'pixel_values', 'labels']
+ 
+## Metrics [name, torchmetric_class_name_in_eval.py, metric init args, metric update args]:
+metrics: [ 
+  ['QAAccuracy', 'QAAccuracy', [], []],
+#  ['QA_Accuracy_choice', 'QA_Accuracy_choice', [], []],
+]
+

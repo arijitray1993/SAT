@@ -1,0 +1,73 @@
+exp_name: llava_mixdata_IT_staticreasoning
+device: 'gpu'
+num_workers: 4
+
+
+### loading checkpoints, eval, train options
+num_epochs: 50
+batch_size: 1
+lr: 0.000005
+weight_decay: 0
+lr_scheduler: "cosine"
+eval_only: False # if this is set to True, only the val dataset will be run.
+tune_lora: True
+load_checkpoint: False
+gradient_accumulation_steps: 8
+lora_rank: 256
+lora_alpha: 512
+
+lora_model_path: /projectnb/ivc-ml/array/research/robotics/dreamworlds/checkpoints/llava_mixdata_reasoning/woven-snow-25_200000 #/projectnb/ivc-ml/array/research/robotics/dreamworlds/checkpoints/llava_mixdata_reasoning/woven-snow-25_110000
+
+eval_every: 5000
+num_eval_steps: 20
+
+no_shuffle: False
+
+freeze_vision: False
+
+train_dataset_choice: "MixLLaVAProcthorReasoning"
+train_dataset_args: {
+  split: "train",
+  mode: "train",
+  qa_format: True,
+  num_data_points: 200000,
+  prompt_mode: "text_choice"
+}
+train_collate_fn: "collate_fn"
+
+
+## define your valtrain dataset, the name must match the class name in datasets/dataloaders.py. This is run during training to help choose best checkpoint
+valtrain_dataset_choice: "ProcTHOR_reasoning"
+valtrain_dataset_args: {
+  split: "valtrain",
+  mode: "val",
+  prompt_mode: "text_choice"
+}
+
+## define your val dataset, the name must match the class name in datasets/dataloaders.py. This is run only when eval_only is set to True
+val_dataset_choice: "ProcTHOR_reasoning"
+val_dataset_args: {
+  split: "val",
+  mode: "val",
+  prompt_mode: "text_choice"
+}
+val_collate_fn: "collate_fn" 
+
+
+## define model. The name must match the class name in models/model_interface.py
+model_choice: "LlavaModel_13B_Interface"
+model_init_args: {
+  temperature: 0,
+  top_p: None,
+  num_beams: 1,
+  max_new_tokens: 768
+}
+# the model must output a huggingface output in its forward function.
+ 
+# These are the inputs to the model. These variables must be present in the dictionary output from your dataloader in datasets/dataloaders.py.
+model_input_choice: ['input_ids', 'attention_mask', 'pixel_values', 'labels']
+ 
+## Metrics [name, torchmetric_class_name_in_eval.py, metric init args, metric update args]:
+metrics: [ 
+#  ['ReasoningAccuracy', 'ReasoningAccuracy', [], []],
+]
