@@ -68,7 +68,7 @@ dependencies:
     - csvw==3.3.1
     - cycler==0.12.1
     - cython==3.0.11
-    - datasets==2.18.0
+    - datasets==3.2.0
     - decorator==4.4.2
     - deepspeed==0.12.6
     - deprecated==1.2.14
@@ -105,7 +105,7 @@ dependencies:
     - hjson==3.1.0
     - httpcore==0.17.3
     - httpx==0.24.0
-    - huggingface-hub==0.22.2
+    - huggingface-hub==0.27.1
     - hydra-core==1.3.2
     - identify==2.6.0
     - idna==3.7
@@ -245,7 +245,7 @@ dependencies:
     - rdflib==7.0.0
     - referencing==0.34.0
     - regex==2024.4.16
-    - requests==2.31.0
+    - requests==2.32.3
     - rfc3986==1.5.0
     - rich==13.7.1
     - rpds-py==0.18.0
@@ -286,7 +286,7 @@ dependencies:
     - torch==2.0.1
     - torchmetrics==1.4.1
     - torchvision==0.15.2
-    - tqdm==4.66.2
+    - tqdm==4.67.1
     - traitlets==5.14.2
     - transformers==4.37.2
     - trimesh==4.4.9
