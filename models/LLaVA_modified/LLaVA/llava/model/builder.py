@@ -117,7 +117,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 model = LlavaLlamaForCausalLM.from_pretrained(
                     model_path,
                     low_cpu_mem_usage=True,
-                    **kwargs
+                    # **kwargs
                 )
     else:
         # Load language model

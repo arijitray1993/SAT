@@ -36,8 +36,8 @@ import wandb
 from numpy.random import choice
 import sys
 # sys.path.append("/projectnb/ivc-ml/array/research/robotics/dreamworlds/models/LLaVA")
-sys.path.append("/projectnb/ivc-ml/array/research/robotics/LLaVA")
-# sys.path.append("models/LLaVA_modified/LLaVA")
+# sys.path.append("/projectnb/ivc-ml/array/research/robotics/LLaVA")
+sys.path.append("models/LLaVA_modified/LLaVA")
 #NOLINT
 
 try:
@@ -56,6 +56,7 @@ try:
         IMAGE_PLACEHOLDER,
     )
 except:
+    print("warning: llava helper functions not found")
     pass
 import csv
 

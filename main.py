@@ -11,11 +11,13 @@ import hydra
 import custom_datasets.dataloaders as datasets
 import models.model_interface as models
 import torch
+from torch.optim import AdamW
 import tqdm
 
 from accelerate import Accelerator
+from accelerate import DistributedDataParallelKwargs
 from accelerate import PartialState
-from transformers import AdamW, AutoModelForSequenceClassification, get_scheduler, BitsAndBytesConfig
+from transformers import AutoModelForSequenceClassification, get_scheduler, BitsAndBytesConfig
 from safetensors import safe_open
  
 # import transformers
@@ -91,7 +93,10 @@ class GenericModule():
 
         # set up training
         num_accumulation_steps = cfg.get("gradient_accumulation_steps", 1)
-        self.accelerator = Accelerator(gradient_accumulation_steps=num_accumulation_steps)
+        self.accelerator = Accelerator(
+            gradient_accumulation_steps=num_accumulation_steps,
+            kwargs_handlers=[DistributedDataParallelKwargs(find_unused_parameters=True),]
+            )
         if train_dataloader is not None:
             self.num_epochs = max_epochs
             self.num_training_steps = self.num_epochs * len(train_dataloader)

@@ -31,11 +31,11 @@ train_dataset_args: {
   split: "train",
   mode: "train",
   qa_format: True,
-  num_data_points: 400000,
+  num_data_points: 100000,
   prompt_mode: "text_choice",
   model_choice: "llava",
-  llava_json_path: "/projectnb/ivc-ml/array/data/llava_data/llava_v1_5_mix665k.json",
-  llava_image_path: "/projectnb/ivc-ml/array/data/llava_data/image_data",
+  llava_json_path: "/net/nfs2.prior/arijitr/data/llava_data/llava_v1_5_mix665k.json",
+  llava_image_path: "/net/nfs2.prior/arijitr/data/llava_data/image_data",
   mix_datas: {
     'llavaIT': 0.4,
     'SAT': 0.6
