@@ -1,3 +1,7 @@
+'''
+Command to run this from project root:
+python -m accelerate.commands.launch main.py exp_name=llava_mixdata_IT_dynamicreasoning
+'''
 exp_name: llava_mixdata_IT_dynamicreasoning
 device: 'gpu'
 num_workers: 0
@@ -12,7 +16,7 @@ lr_scheduler: "cosine"
 eval_only: False # if this is set to True, only the val dataset will be run.
 tune_lora: True
 load_checkpoint: False
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 1
 lora_rank: 256
 lora_alpha: 512
 num_warmup_steps: 0
