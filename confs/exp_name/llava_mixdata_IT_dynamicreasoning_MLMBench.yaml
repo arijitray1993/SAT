@@ -41,7 +41,7 @@ val_dataset_args: {
   datasets: [
     "CVBench",
     "BLINK",
-    "VSR"
+    "SAT_real"
   ]
 }
 val_collate_fn: "collate_fn" 

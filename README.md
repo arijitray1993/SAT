@@ -1,7 +1,7 @@
 # SAT: Spatial Aptitude Training for Multimodal Language Models
 Arijit Ray, Jiafei Duan, Ellis Brown, Reuben Tan, Dina Bashkirova, Rose Hendrix, Kiana Ehsani, Aniruddha Kembhavi, Bryan A. Plummer, Ranjay Krishna, Kuo-Hao Zeng, Kate Saenko
 
-**Note: This code release is a work in progress - we will update it with full instructions soon.**
+*Note: This code release is a work in progress - we will update it with more instructions soon.*
 
 
 [Project Page](https://arijitray1993.github.io/SAT/)
@@ -22,7 +22,25 @@ pip install -r requirements.txt
 mkdir checkpoints/
 ```
 
-## Run Inference with our best SAT model
+## Setup Datasets
+
+### Get the SAT Data
+Follow instructions here: https://huggingface.co/datasets/array/SAT 
+
+### (Needed for training) Download the LLaVA Instruct Tune data
+Follow instructions here: https://github.com/haotian-liu/LLaVA?tab=readme-ov-file#visual-instruction-tuning 
+
+
+## Run Inference/Evaluations
+
+### Run evals on CVBench, BLINK, and SAT Real Test
+
+Run:
+
+`python -m accelerate.commands.launch main.py exp_name=llava_mixdata_IT_dynamicreasoning_MLMBench`
+
+
+### Load our SAT model for CLI inference
 
 ```python
 
@@ -64,7 +82,10 @@ lora_model = lora_model.half()
 model = lora_model.merge_and_unload()
 
 
-## Process the data, assumes you have images_batch of PIL images and prompt which is a text string query like "Is the car to the left or right of pedestrian?"
+## Process the data,
+# assumes you have images_batch, which is a list of PIL images and
+# prompt, which is a text string like "Is the car to the left or right of pedestrian?"
+
 images = []
 for image in images_batch: 
     # list of images for a prompt or prompt batch. Even if one prompt in a batch requires 2 images, this list should be flattened.
@@ -95,20 +116,6 @@ generated_ids[generated_ids==-200] = 1
 generated_text = self.test_dataloader.dataset.batch_decode(generated_ids, skip_special_tokens=True)
 ```
 
-## Run evals on CVBench and BLINK
-
-Run:
-
-`python -m accelerate.commands.launch main.py exp_name=llava_mixdata_IT_dynamicreasoning_MLMBench`
-
-
-## Get the SAT Data
-Follow instructions here: https://huggingface.co/datasets/array/SAT 
-
-### (Needed for training) Download the LLaVA Instruct Tune data
-Follow instructions here: https://github.com/haotian-liu/LLaVA?tab=readme-ov-file#visual-instruction-tuning 
-
-
 ## Training
 
 ### Prepare accelerate to use deepspeed stage-2
@@ -130,6 +137,8 @@ You can extend the tuning by:
 
 
 More instructions will be updated soon. 
+
+*Note: This is an initial release, so there may be some bugs*
 
 
 ## BibTeX
