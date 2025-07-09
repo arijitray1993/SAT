@@ -27,6 +27,24 @@ mkdir checkpoints/
 ### Get the SAT Data
 Follow instructions here: https://huggingface.co/datasets/array/SAT 
 
+### Generate your own synthetic spatial data
+
+First, make sure you have `ai2thor` and `procthor` installed:
+```
+pip install --upgrade ai2thor
+pip install prior --upgrade
+```
+The following scripts are designed to run on headless servers, but they need at least one GPU. 
+
+#### Static relationships
+See this script: `scripts/3d_reasoning_qas/generate_3d_spatial_qas_procthor_3obj.py`
+
+#### Dynamic reasoning
+- Camera movements: `scripts/3d_reasoning_qas/generate_camera_move_QA.py`
+- Camera rotation, object movement, action consequence, goal aim: `scripts/3d_reasoning_qas/generate_agent_obj_move_QA.py`
+- Perspective taking: `scripts/3d_reasoning_qas/gen_perspective_qas.py`
+
+
 ### (Needed for training) Download the LLaVA Instruct Tune data
 Follow instructions here: https://github.com/haotian-liu/LLaVA?tab=readme-ov-file#visual-instruction-tuning 
 
