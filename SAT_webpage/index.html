@@ -198,21 +198,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          Reasoning about motion and space is a fundamental cognitive capability that is required by multiple real-world applications. 
-          While many studies highlight that large multimodal language models (MLMs) struggle to reason about space, 
-          they only focus on static spatial relationships, and not dynamic awareness of motion and space, i.e.,
-           reasoning about the effect of egocentric and object motions on spatial relationships. Manually annotating such 
-           object and camera movements is expensive. Hence, we introduce SAT, a simulated spatial aptitude training dataset 
-           comprising both static and dynamic spatial reasoning across 175K question-answer (QA) pairs and 20K scenes. 
-           Complementing this, we also construct a small (150 image-QAs) yet challenging dynamic spatial test set using real-world images.
-            Leveraging our SAT datasets and 6 existing static spatial benchmarks, we systematically investigate what improves both
-             static and dynamic spatial awareness. Our results reveal that simulations are surprisingly effective at imparting
-              spatial aptitude to MLMs that translate to real images. We show that perfect annotations in simulation are more
-               effective than existing approaches of pseudo-annotating real images. For instance, SAT training improves a 
-               LLaVA-13B model by an average 11% and a LLaVA-Video-7B model by an average 8% on multiple spatial benchmarks, 
-               including our real-image dynamic test set and spatial reasoning on long videos -- even outperforming some 
-               large proprietary models. While reasoning over static relationships improves with synthetic training data, 
-               there is still considerable room for improvement for dynamic reasoning questions.
+          Reasoning about motion and space is a fundamental cognitive capability that is required by multiple real-world applications. While many studies highlight that large multimodal language models (MLMs) struggle to reason about space, they only focus on static spatial relationships and not dynamic awareness of motion and space---i.e. reasoning about the effect of egocentric and object motions on spatial relationships. Manually annotating such object and camera movements is expensive. Hence, we introduce SAT, a simulated spatial aptitude training dataset comprising both static and dynamic spatial reasoning across 175K question-answer (QA) pairs and 20K scenes. Complementing this, we also construct a small (150 image-QAs) yet challenging dynamic spatial test set using real-world images. Leveraging our SAT datasets and 6 existing static spatial benchmarks, we systematically investigate what improves both static and dynamic spatial awareness. Our results reveal that simulations are surprisingly effective at imparting spatial aptitude to MLMs that translate to real images. We show that perfect annotations in simulation are more effective than existing approaches of pseudo-annotating real images. For instance, SAT training improves a LLaVA-13B model by an average 11% and a LLaVA-Video-7B model by an average 8% on multiple spatial benchmarks, including our real-image dynamic test set and spatial reasoning on long videos---even outperforming some large proprietary models. While reasoning over static relationships improves with synthetic training data, there is still considerable room for improvement for dynamic reasoning questions.
         </div>
       </div>
     </div>
@@ -233,8 +219,8 @@
         <h2 class="title is-3">Approach</h2>
         <div class="content has-text-centered">
           <img src="./SAT_webpage/static/images/SATApproach.png" alt="SAT Approach" class="interpolation-image" width="100%">
-          We take actions in a 3D simulator and check the 3D locations of assets. We use
-natural language descriptions of the assets and make QA pairs based on how the 3D nature of the scene changes with the actions taken.
+          We take actions in a 3D simulator and use privileged 3D information about the assets. We use
+natural language descriptions of the assets and make question-answer pairs based on how the 3D nature of the scene changes with the actions taken.
         </div>
       </div>
     </div>
@@ -249,12 +235,34 @@ natural language descriptions of the assets and make QA pairs based on how the 3
 
 <section class="section">
   <div class="container is-max-desktop">
+    <!-- Approach. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Simulated Training Data</h2>
+        <div class="content has-text-centered">
+          <img src="https://arijitray1993.github.io/SAT/SAT_webpage/static/images/sat_teaser.png" alt="SAT data" class="interpolation-image" width="100%">
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Results</h2>
         <hr>
         <div class="content has-text-centered">
-          <h4 class="title is-5">Open-source MLMs struggle on our dynamic spatial reasoning as well as large proprietary models despite stronger static spatial performance</h4>
+          <h4 class="title is-5">Open-source MLMs struggle on dynamic spatial reasoning as well as large proprietary models</h4>
           <img src="./SAT_webpage/static/images/sat_eval.png" alt="SAT Tasks" class="interpolation-image" width="75%">
         </div>
       </div>
@@ -264,7 +272,7 @@ natural language descriptions of the assets and make QA pairs based on how the 3
     
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h5 class="title is-5">Fine-tuning on SAT improves spatial performance on existing static benchmarks</h5>
+        <h5 class="title is-5"><i>Simulated</i> SAT data improves spatial performance on <i>real</i> static benchmarks</h5>
       </div>
     </div>
     
@@ -281,7 +289,7 @@ natural language descriptions of the assets and make QA pairs based on how the 3
     
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h5 class="title is-5">Fine-tuning on SAT improves performance on a video spatial benchmark, VSI-Bench (Yang et al, 2024)</h5>
+        <h5 class="title is-5">Fine-tuning on image-based SAT also improves performance videos, VSI-Bench (Yang et al, 2024)</h5>
       </div>
     </div>
     
@@ -289,6 +297,41 @@ natural language descriptions of the assets and make QA pairs based on how the 3
       <div class="column">
         <div class="column content"> 
           <img src="./SAT_webpage/static/images/vsieval.png" alt="SAT Tasks" class="interpolation-image" width="60%">
+        </div>
+      </div>
+          
+    </div>
+
+    <hr>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h5 class="title is-5">Dynamic movements further help static perception!</h5>
+      </div>
+    </div>
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="column content"> 
+          <img src="./SAT_webpage/static/images/dynamic_static.png" alt="SAT quality" class="interpolation-image" width="60%">
+        </div>
+      </div>
+          
+    </div>
+
+    <hr> 
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h5 class="title is-5">Annotation quality is more important than realism!</h5>
+      </div>
+    </div>
+    
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <div class="column content"> 
+          <img src="./SAT_webpage/static/images/quality_realism.png" alt="SAT quality" class="interpolation-image" width="60%">
         </div>
       </div>
           
