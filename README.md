@@ -51,6 +51,23 @@ Follow instructions here: https://github.com/haotian-liu/LLaVA?tab=readme-ov-fil
 
 ## Run Inference/Evaluations
 
+### Qwen 2.5 VL spatial model baseline trained on SAT + Video-R1. 
+
+```
+% pip install git+https://github.com/huggingface/transformers accelerate
+% pip install qwen-vl-utils[decord]==0.0.8
+
+from transformers import Qwen2_5_VLForConditionalGeneration, AutoProcessor
+
+model = Qwen2_5_VLForConditionalGeneration.from_pretrained("array/Qwen2.5-VL-SAT")
+processor = AutoProcessor.from_pretrained(
+    exp_confs["model_path"],
+    trust_remote_code=model_config.trust_remote_code
+)
+
+```
+
+
 ### Run evals on CVBench, BLINK, and SAT Real Test
 
 Run:
@@ -58,7 +75,7 @@ Run:
 `python -m accelerate.commands.launch main.py exp_name=llava_mixdata_IT_dynamicreasoning_MLMBench`
 
 
-### Load our SAT model for CLI inference
+### Load the paper's SAT model for CLI inference
 
 ```python
 
